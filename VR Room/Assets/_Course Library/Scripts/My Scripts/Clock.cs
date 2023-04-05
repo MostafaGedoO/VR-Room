@@ -20,15 +20,17 @@ public class Clock : MonoBehaviour
     {
         lastSec = secAnlog.localRotation;
     }
-
+    
     void Update()
     {
         secAnlog.localRotation = Quaternion.Euler(DateTime.Now.Second * 6f,0,0);
+        
         if (secAnlog.localRotation != lastSec)
         {
             PlayTickSound();
             lastSec = secAnlog.localRotation;
         }
+        
        minAnlog.localRotation = Quaternion.Euler(DateTime.Now.Minute * 6f,0,0);
        hoursAnlog.localRotation = Quaternion.Euler(DateTime.Now.Hour * 30f,0,0);
     }
